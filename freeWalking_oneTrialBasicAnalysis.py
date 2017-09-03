@@ -14,21 +14,22 @@ from glob import glob
 from os.path import isfile, sep
 from sys import path, exit
 
+# Set path to analysis code directory
+codeDir = sep.join(os.getcwd().split(sep)[:-2])
+path.insert(1, codeDir)
+
 # Import custom plotting functions
-path.insert(1, '/Users/hannah/Dropbox/code/plottingUtilities/')
-from plottingUtilities import *
-from velocityDistributionPlots import *
+from plottingUtilities.basicPlotting import *
+from plottingUtilities.velocityDistributionPlots import *
 
 # Import custom data processing functions
-path.insert(1, '/Users/hannah/Dropbox/code/flyVR/utilities/')
-from loadSingleTrial import loadSingleVRLogfile
-from loadObjectCoords import loadObjectCoords
+from flyVR.utilities.loadSingleTrial import loadSingleVRLogfile
+from flyVR.utilities.loadObjectCoords import loadObjectCoords
 
-path.insert(1, '/Users/hannah/Dropbox/code/trajectoryAnalysis/')
-from downsample import *
-from trajectoryDerivedParams import *
-from periodicWorldAnalysis import *
-from downsample import *
+from trajectoryAnalysis.downsample import *
+from trajectoryAnalysis.trajectoryDerivedParams import *
+from trajectoryAnalysis.periodicWorldAnalysis import *
+from trajectoryAnalysis.downsample import *
 
 sns.set_style('ticks')
 
